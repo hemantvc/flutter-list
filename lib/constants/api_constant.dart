@@ -1,5 +1,5 @@
 /// ApiConstant class making for web api constant key value store.
-/// @date : 23/08/22 01:21 PM
+
 class ApiConstant {
   //Request timeouts
   static const int CONNECTION_TIMEOUT = 60; //in sec

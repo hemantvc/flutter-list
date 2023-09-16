@@ -1,5 +1,4 @@
 class AppConstant {
-  // UI Screen Names
-  static const String SCREEN_NAME_SPLASH_SCREEN = "SplashScreen";
+  static const bool IS_DEBUG = true;
 
 }
