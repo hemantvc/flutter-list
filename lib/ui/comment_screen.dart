@@ -19,21 +19,12 @@ class CommentsScreen extends StatefulWidget {
 }
 
 class _CommentsScreenState extends BaseScreen<CommentsScreen> {
-  // int _counter = 0;
-  //
-  // void _incrementCounter() {
-  //   setState(() {
-  //     _counter++;
-  //   });
-  // }
-
   List<Comment> comments = [];
   final int postId;
   _CommentsScreenState(this.postId);
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       // load ui after run this task
@@ -44,31 +35,6 @@ class _CommentsScreenState extends BaseScreen<CommentsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // return Scaffold(
-    //   appBar: AppBar(
-    //     title: Text(widget.title),
-    //   ),
-    //   body: Center(
-    //     child: Column(
-    //       mainAxisAlignment: MainAxisAlignment.center,
-    //       children: <Widget>[
-    //         const Text(
-    //           'You have pushed the button this many times:',
-    //         ),
-    //         Text(
-    //           '$_counter',
-    //           style: Theme.of(context).textTheme.headlineMedium,
-    //         ),
-    //       ],
-    //     ),
-    //   ),
-    //   floatingActionButton: FloatingActionButton(
-    //     onPressed: _incrementCounter,
-    //     tooltip: 'Increment',
-    //     child: const Icon(Icons.add),
-    //   ),
-    // );
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -78,9 +44,40 @@ class _CommentsScreenState extends BaseScreen<CommentsScreen> {
         ListView.builder(
           itemCount: comments.length,
           itemBuilder: (context, index) {
-            return ListTile(
-              onTap: () {},
-              title: Text('${comments[index].name}'),
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Card(
+                elevation: 4.0,
+                child: Container(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "${comments[index].name}",
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18.0,
+                        ),
+                      ),
+                      const SizedBox(height: 8.0),
+                      Text(
+                        "${comments[index].email}",
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                        ),
+                      ),
+                      const SizedBox(height: 8.0),
+                      Text(
+                        "${comments[index].body}",
+                        style: const TextStyle(
+                          fontSize: 14.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             );
           },
         )
