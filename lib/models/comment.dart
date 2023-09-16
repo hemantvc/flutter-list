@@ -1,11 +1,11 @@
-class MyComment {
+class Comment {
   final int id;
   final int postId;
   final String name;
   final String email;
   final String body;
 
-  MyComment({
+  Comment({
     required this.id,
     required this.postId,
     required this.name,
@@ -13,8 +13,8 @@ class MyComment {
     required this.body,
   });
 
-  factory MyComment.fromJson(Map<String, dynamic> json) {
-    return MyComment(
+  factory Comment.fromJson(Map<String, dynamic> json) {
+    return Comment(
       id: json['id'] as int,
       postId: json['postId'] as int,
       name: json['name'] as String,
