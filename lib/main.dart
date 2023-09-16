@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:uno_project/blocs/post_bloc.dart';
-import 'package:uno_project/screens/post_list.dart';
- 
-void main() {
-  runApp(MyApp());
+import 'package:uno_project/features/posts/ui/posts_page.dart';
+
+
+
+void main() async{ 
+  runApp(new MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter BLoC Example',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: BlocProvider(
-        create: (context) => PostBloc(),
-        child: PostList(),
-      ),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false, 
+      home: PostsPage(),
     );
   }
 }
